@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="flex items-center gap-1 text-sm text-gray-600">
               <span>Made with</span>
               <Heart className="h-4 w-4 text-red-500 fill-current" />
-              <span>by Diet Defender Team</span>
+              <span>by Brainstorm Troopers</span>
             </div>
             
             <div className="flex items-center mt-2 gap-4">
