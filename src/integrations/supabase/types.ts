@@ -71,6 +71,33 @@ export type Database = {
           },
         ]
       }
+      products: {
+        Row: {
+          allergens: string[] | null
+          barcode: string
+          created_at: string
+          id: string
+          ingredients: string | null
+          product_name: string
+        }
+        Insert: {
+          allergens?: string[] | null
+          barcode: string
+          created_at?: string
+          id?: string
+          ingredients?: string | null
+          product_name: string
+        }
+        Update: {
+          allergens?: string[] | null
+          barcode?: string
+          created_at?: string
+          id?: string
+          ingredients?: string | null
+          product_name?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -258,6 +285,65 @@ export type Database = {
         Update: {
           id?: number
           name?: string
+        }
+        Relationships: []
+      }
+      scan_history: {
+        Row: {
+          detected_allergens: string[] | null
+          id: string
+          is_safe: boolean
+          product_id: string
+          scanned_at: string
+          user_id: string | null
+        }
+        Insert: {
+          detected_allergens?: string[] | null
+          id?: string
+          is_safe: boolean
+          product_id: string
+          scanned_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          detected_allergens?: string[] | null
+          id?: string
+          is_safe?: boolean
+          product_id?: string
+          scanned_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scan_history_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_allergies: {
+        Row: {
+          allergies: string[]
+          created_at: string
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          allergies: string[]
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          allergies?: string[]
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }

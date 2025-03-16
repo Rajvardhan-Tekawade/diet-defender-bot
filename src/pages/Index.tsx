@@ -7,6 +7,8 @@ import FeaturesSection from '@/components/FeaturesSection';
 import JotformChatbot from '@/components/JotformChatbot';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BarcodeScanner from '@/components/BarcodeScanner';
+import AllergyForm from '@/components/AllergyForm';
 
 const Index = () => {
   return (
@@ -16,6 +18,36 @@ const Index = () => {
       <main className="flex-1">
         <HeroSection />
         <FeaturesSection />
+        
+        <div id="scan" className="py-16 px-4 md:px-6 lg:px-8 bg-health-light-blue">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Scan Product Barcode</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Enter a product barcode to check if it contains allergens that may affect you.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <BarcodeScanner />
+            </div>
+          </div>
+        </div>
+
+        <div id="allergies" className="py-16 px-4 md:px-6 lg:px-8">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Manage Your Allergies</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Keep track of your allergies and dietary restrictions to get personalized alerts.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-sm border">
+              <AllergyForm />
+            </div>
+          </div>
+        </div>
         
         <div id="chatbot" className="py-16 px-4 md:px-6 lg:px-8">
           <div className="container mx-auto max-w-5xl">
