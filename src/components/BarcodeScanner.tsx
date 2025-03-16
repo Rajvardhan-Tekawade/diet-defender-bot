@@ -27,6 +27,7 @@ const BarcodeScanner = () => {
 
     setIsLoading(true);
     try {
+      // Call the Supabase edge function directly
       const { data, error } = await supabase.functions.invoke('scan-barcode', {
         body: { barcode }
       });
@@ -41,6 +42,7 @@ const BarcodeScanner = () => {
         return;
       }
 
+      console.log('Scan result:', data);
       setScanResult(data);
       setShowResult(true);
     } catch (error) {
